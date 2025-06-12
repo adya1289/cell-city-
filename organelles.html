@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cell Organelles</title>
+  <style>
+    body {
+      background-color: #fff9c4;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    .organelle-button {
+      background-color: white;
+      color: black;
+      padding: 16px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      cursor: pointer;
+      width: 250px;
+      display: inline-block;
+    }
+
+    .organelle-description {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    #passport-btn {
+      display: block;
+      margin: 40px auto;
+      background-color: #007bff;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    #passport-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔬 Explore Cell Organelles</h1>
+  <div id="buttons"></div>
+  <div id="description" class="organelle-description"></div>
+  <button id="passport-btn" onclick="goToPassport()">Go to Cell Passport</button>
+
+  <script>
+      const organelles = {
+        nucleus: `🏛️ Nucleus: The control center of the cell. It contains the cell’s genetic material (DNA) and coordinates activities like growth, metabolism, protein synthesis, and cell division. Think of it as City Hall where all major decisions are made.
+        <br><a href="https://www.youtube.com/watch?v=8yLNC2BPnyM" target="_blank">▶ Watch a video about the Nucleus</a>`,
+
+        mitochondria: `🔋 Mitochondria: The powerhouse of the cell. They convert nutrients into energy through a process called cellular respiration. They provide the energy needed for the cell’s activities, like the power plants of a city.
+        <br><a href="https://www.youtube.com/watch?v=r6C54HHFTwE" target="_blank">▶ Watch a video about the Mitochondria</a>`,
+
+        er: `🛣️ Endoplasmic Reticulum (ER): A network of tubes and channels that transport materials throughout the cell. Rough ER (with ribosomes) helps make proteins, and smooth ER helps make lipids. It works like the city’s highway system for moving goods.
+        <br><a href="https://www.youtube.com/watch?v=NRiJhzYE4Ko" target="_blank">▶ Watch a video about the Endoplasmic Reticulum</a>`,
+
+        ribosome: `🏭 Ribosomes: Tiny factories that make proteins by putting together amino acids. They can be found floating in the cytoplasm or attached to the rough ER. Proteins made here help build and repair the cell, like workers in industrial zones.
+        <br><a href="https://www.youtube.com/watch?v=WjnUJusSYAo" target="_blank">▶ Watch a video about Ribosomes</a>`,
+
+        golgi: `📦 Golgi Apparatus: The post office of the cell. It modifies, sorts, and packages proteins and lipids for delivery to different parts of the cell or for export out of the cell.
+        <br><a href="https://www.youtube.com/watch?v=j2_g1CZCaPs" target="_blank">▶ Watch a video about the Golgi Apparatus</a>`,
+
+        cellmembrane: `🛂 Cell Membrane: Acts like the border and customs of the city. It controls what enters and exits the cell, helping to maintain balance and protect the internal environment.
+        <br><a href="https://www.youtube.com/watch?v=SsFqmYATM3k" target="_blank">▶ Watch a video about the Cell Membrane</a>`,
+
+        lysosome: `🚮 Lysosomes: The waste disposal system. They contain digestive enzymes that break down waste, damaged cell parts, and unwanted materials, keeping the cell clean and efficient.
+        <br><a href="https://www.youtube.com/watch?v=cw7h6nxtmXU" target="_blank">▶ Watch a video about Lysosomes</a>`,
+
+        cytoplasm: `🌫️ Cytoplasm: A jelly-like substance that fills the cell and holds all the organelles. It allows materials to move around easily, like air and roads within the city.
+        <br><a href="https://www.youtube.com/watch?v=Swv-Cf4eDbs" target="_blank">▶ Watch a video about Cytoplasm</a>`,
+
+        vacuole: `💧 Vacuole: A storage tank for water, nutrients, and waste. In plant cells, it's very large and helps maintain shape and pressure. It functions like a city’s water tank or storage facility.
+        <br><a href="https://www.youtube.com/watch?v=NSTABonKB9Q" target="_blank">▶ Watch a video about the Vacuole</a>`,
+
+        cellwall: `🧱 Cell Wall: Found only in plant cells, the cell wall is a rigid outer layer that gives the cell structure and protection, much like a strong city wall defends and supports a city.
+        <br><a href="https://www.youtube.com/watch?v=qCN8Hg2DNsA" target="_blank">▶ Watch a video about the Cell Wall</a>`,
+
+        chloroplast: `🌿 Chloroplasts: The community kitchens of plant cells. They use sunlight, water, and carbon dioxide to produce food (glucose) through photosynthesis — making energy and feeding the city.
+        <br><a href="https://www.youtube.com/watch?v=Ezl7DbkAJKM" target="_blank">▶ Watch a video about Chloroplasts</a>`
+      };
+
+      const buttonContainer = document.getElementById('buttons');
+      const descriptionBox = document.getElementById('description');
+
+      for (let key in organelles) {
+        const btn = document.createElement('button');
+        btn.className = 'organelle-button';
+        btn.innerText = key.charAt(0).toUpperCase() + key.slice(1);
+        btn.onclick = () => {
+          descriptionBox.innerHTML = organelles[key];
+          localStorage.setItem(key, 'visited');
+        };
+        buttonContainer.appendChild(btn);
+      }
+
+      function goToPassport() {
+        window.location.href = 'cellpassport.html';
+      }
+    </script>
+</body>
+</html>
+
+
+
+
